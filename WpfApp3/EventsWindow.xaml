@@ -1,0 +1,28 @@
+﻿<Window x:Class="WpfApp3.EventsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Список мероприятий" Height="410" Width="650"
+        Background="#FF2C3E50">
+
+    <Grid>
+        <TextBlock Text="Список мероприятий" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,0,0" FontSize="24" Foreground="White"/>
+        <TextBox x:Name="txtSearch" Text="Поиск" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Height="30" Margin="25,77,0,0" FontSize="18" Background="SlateGray"/>
+        <Button Content="Найти" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Height="30" Margin="404,77,0,0" FontSize="16" Background="#FF2980B9" Foreground="White" Click="BtnSearch_Click"/>
+        <DatePicker x:Name="dpDate" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Height="30" Margin="239,77,0,0" FontSize="18" Background="SlateGray" Foreground="Black"/>
+        <ListView x:Name="lvEvents" HorizontalAlignment="Left" VerticalAlignment="Top" Width="586" Height="189" Margin="22,121,0,0" FontSize="18" Background="#FF34495E" Foreground="White" RenderTransformOrigin="0.497,0.491">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Наименование" Width="350" DisplayMemberBinding="{Binding NameActiv}"/>
+                    <GridViewColumn Header="Дата старта" Width="150" DisplayMemberBinding="{Binding Data}"/>
+                    <GridViewColumn Header="Время начала" Width="150" DisplayMemberBinding="{Binding Time}"/>
+                    <GridViewColumn Header="Жюри" Width="150" DisplayMemberBinding="{Binding Juri}"/>
+                    <GridViewColumn Header="Победитель" Width="150" DisplayMemberBinding="{Binding Win}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="50" Margin="26,319,0,0" FontSize="16" Background="#FF2980B9" Foreground="White" Click="BackButton_Click">
+            <TextBlock Text="&#xE112;" FontFamily="Segoe UI Symbol" FontSize="24"/>
+        </Button>
+        <Button Content="Обновить данные" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Height="50" Margin="223,321,0,0" FontSize="20" Background="#FF2980B9" Foreground="White" Click="BtnRefresh_Click"/>
+    </Grid>
+</Window>
